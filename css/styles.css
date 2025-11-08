@@ -76,12 +76,14 @@ h1 {
   flex-shrink: 1;
 }
 
-.spin-button {
+.button {
   font-family: 'DynaPuff', sans-serif;
   font-size: 16px;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
+  background-color: violet;
+  color: white;
   color: #000;
   cursor: pointer;
   border-radius: 5px;
@@ -92,6 +94,9 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.spin-button {
   animation: rotate-bg-color 10s infinite;
 }
 
@@ -142,38 +147,13 @@ h1 {
   }
 }
 
-.spin-button:active {
+.button:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
 }
 
-/* .spin-button {
-  padding: 15px 40px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  flex-shrink: 0;
-}
-
-.spin-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
-}
-
-.spin-button:active {
-  transform: translateY(-1px);
-} */
-
-.spin-button:disabled {
+.button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
@@ -257,7 +237,7 @@ h1 {
   padding: 12px;
   font-size: 15px;
   border: 2px solid #aa36d4;
-  border-radius: 2px;
+  border-radius: 5px;
   resize: none;
   font-family: 'DynaPuff', sans-serif;
   margin-bottom: 10px;

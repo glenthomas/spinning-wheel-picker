@@ -105,7 +105,7 @@ function drawWheel() {
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 24px DynaPuff';
+    ctx.font = 'bold 26px DynaPuff';
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
     ctx.lineWidth = 4;
     
@@ -220,6 +220,7 @@ function animate() {
       isSpinning = false;
       angularVelocity = 0;
       spinButton.disabled = false;
+      updateButton.disabled = false;
       
       // Show winner
       const winner = getWinningSegment();
@@ -254,7 +255,8 @@ function spin() {
   
   isSpinning = true;
   spinButton.disabled = true;
-  
+  updateButton.disabled = true;
+
   animate();
 }
 

@@ -287,6 +287,23 @@ h1 {
   transform: translate(2px, 2px);
 }
 
+.info-button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.info-button {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(78, 204, 239);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 36px;
+  padding: 0;
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   body {
     padding: 5px;
@@ -321,21 +338,17 @@ h1 {
     height: 120px;
     flex: none;
   }
-}
 
-.info-button-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+  .info-button-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 
-.info-button {
-  width: 40px;
-  height: 40px;
-  background-color: rgb(78, 204, 239);
-  border-radius: 50%;
-  font-size: 24px;
-  line-height: 36px;
-  padding: 0;
-  text-align: center;
+  .info-button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 24px;
+  }
 }

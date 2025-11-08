@@ -6,6 +6,12 @@ const updateButton = document.getElementById('updateButton');
 const namesInput = document.getElementById('namesInput');
 const resultDisplay = document.getElementById('result');
 
+// Modal elements
+const modal = document.getElementById('resultModal');
+const modalResult = document.getElementById('modalResult');
+const closeModal = document.getElementById('closeModal');
+const spinAgainBtn = document.getElementById('spinAgainBtn');
+
 const dynaPuffFont = new FontFace(
   "DynaPuff",
   "url(https://fonts.gstatic.com/s/dynapuff/v9/z7NKdRvsZDIVHbYPMhZJ3HQ83UaSu4uhr7-zGcLpaJ-Y0A.woff2)"
@@ -222,15 +228,10 @@ function animate() {
       spinButton.disabled = false;
       updateButton.disabled = false;
       
-      // Show winner
+      // Show winner in modal
       const winner = getWinningSegment();
       setTimeout(() => {
-        resultDisplay.textContent = `🎉 ${winner} 🎉`;
-        resultDisplay.classList.add('show');
-        setTimeout(() => {
-          resultDisplay.classList.remove('show');
-          resultDisplay.classList.add('shown');
-        }, 500);
+        showResultModal(winner);
       }, 100);
     }
     
@@ -260,12 +261,50 @@ function spin() {
   animate();
 }
 
+// Modal functions
+function showResultModal(winner) {
+  modalResult.textContent = winner;
+  modal.classList.add('show');
+  // Prevent body scrolling when modal is open
+  document.body.style.overflow = 'hidden';
+}
+
+function hideResultModal() {
+  modal.classList.remove('show');
+  // Restore body scrolling
+  document.body.style.overflow = '';
+}
+
 // Event listeners
 spinButton.addEventListener('click', spin);
 updateButton.addEventListener('click', () => {
   loadNames();
   resultDisplay.textContent = '';
   resultDisplay.classList.remove('show');
+});
+
+// Modal event listeners
+closeModal.addEventListener('click', hideResultModal);
+spinAgainBtn.addEventListener('click', () => {
+  hideResultModal();
+  // Small delay to allow modal to close before spinning
+  setTimeout(() => {
+    spin();
+  }, 100);
+});
+
+// Close modal when clicking outside of it
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    hideResultModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('show')) {
+    hideResultModal();
+  }
 });
 
 dynaPuffFont.load().then((font) => {

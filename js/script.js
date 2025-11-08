@@ -4,7 +4,6 @@ const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
 const updateButton = document.getElementById('updateButton');
 const namesInput = document.getElementById('namesInput');
-const resultDisplay = document.getElementById('result');
 
 // Modal elements
 const modal = document.getElementById('resultModal');
@@ -244,9 +243,6 @@ function animate() {
 function spin() {
   if (isSpinning) return;
   
-  resultDisplay.textContent = '';
-  resultDisplay.classList.remove('show');
-  
   // Set initial velocity - higher for longer spin
   angularVelocity = 0.5 + Math.random() * 0.15;
   
@@ -279,8 +275,6 @@ function hideResultModal() {
 spinButton.addEventListener('click', spin);
 updateButton.addEventListener('click', () => {
   loadNames();
-  resultDisplay.textContent = '';
-  resultDisplay.classList.remove('show');
 });
 
 // Modal event listeners

@@ -7,8 +7,8 @@
 body {
   font-family: 'DynaPuff', sans-serif;
   background: linear-gradient(135deg, #8E44AD 0%, #3498DB 100%);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -27,10 +27,9 @@ body {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  height: 100%;
+  min-height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
   z-index: 1;
 }
@@ -50,8 +49,6 @@ h1 {
   gap: 20px;
   align-items: start;
   flex: 1;
-  min-height: 0;
-  overflow: hidden;
 }
 
 .wheel-section {
@@ -63,8 +60,6 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  overflow: hidden;
 }
 
 #wheelCanvas {
@@ -212,8 +207,7 @@ h1 {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: hidden;
+  min-height: 500px;
 }
 
 .names-section h2 {
@@ -294,18 +288,23 @@ h1 {
 }
 
 @media (max-width: 1024px) {
+  body {
+    padding: 5px;
+  }
+  
   .main-content {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    gap: 15px;
   }
   
   .names-section {
     order: 1;
-    max-height: 35vh;
+    min-height: 280px;
   }
   
   .wheel-section {
     order: 2;
+    margin-bottom: 20px;
   }
   
   h1 {
@@ -314,6 +313,12 @@ h1 {
   }
   
   #wheelCanvas {
-    max-height: 45vh;
+    max-height: 40vh;
+    width: 100%;
+  }
+  
+  #namesInput {
+    height: 120px;
+    flex: none;
   }
 }

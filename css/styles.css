@@ -309,9 +309,14 @@ h1 {
     padding: 5px;
   }
   
+  h1 {
+    order: 0;
+  }
+  
   .main-content {
     grid-template-columns: 1fr;
     gap: 15px;
+    order: 1;
   }
   
   .names-section {
@@ -340,16 +345,10 @@ h1 {
   }
 
   .info-button-container {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-
-  .info-button {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-    line-height: 22px;
+    position: static;
+    text-align: center;
+    margin: 5px 0;
+    order: 3;
   }
 }
 
